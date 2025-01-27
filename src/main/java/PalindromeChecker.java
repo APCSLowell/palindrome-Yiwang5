@@ -37,13 +37,53 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  String sWord = noSpaces(word);
+  sWord = onlyLetters(sWord);
+  sWord = noCapitals(sWord);
+  String sWord2 = noSpaces(word);
+  sWord2 = onlyLetters(sWord2);
+  sWord2 = noCapitals(sWord2);
+  if (sWord.equalsIgnoreCase(reverse(sWord2)))
+  return true;
+  else
+
   return false;
 }
 public String reverse(String str)
 {
     String sNew = new String();
-    //your code here
+    for(int i = 0; i < str.length(); i++){
+    sNew = str.charAt(i) + sNew;
     return sNew;
 }
+
+public String onlyLetters(String sString){
+  String word = "";
+  for(int i = 0; i < sString.length(); i++){
+  if(Character.isLetter(sString.charAt(i)) == true){
+  word = word + sString.charAt(i);
+    }
+  }
+  return word; 
 }
+
+
+public String noSpaces(String sWord){
+  if(sWord == ""){
+  return sWord;
+  }
+  String word = "";
+  for(int i = 0; i < sWord.length()-1; i++){
+  if (sWord.substring(i,i+1).equals(" ") == false){
+  word = word + sWord.substring(i,i+1);
+    }
+  }
+  return word + sWord.substring(sWord.length()-1);
+}
+
+
+public String noCapitals(String sWord){
+  return sWord.toLowerCase();
+}
+  
+}//end of checker
