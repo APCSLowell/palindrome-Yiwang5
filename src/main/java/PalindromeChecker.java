@@ -54,8 +54,8 @@ public String reverse(String str)
     String sNew = new String();
     for(int i = 0; i < str.length(); i++){
     sNew = str.charAt(i) + sNew;
+    }
     return sNew;
-  }
 }
 public String onlyLetters(String sString){
   String word = "";
